@@ -1,12 +1,21 @@
+# movie/views.py
 from django.shortcuts import render
+from .models import Movie
 
 def home(request):
-    # Diccionario con datos que queremos pasar a la plantilla
-    context = {'name': 'Camila Roa'}
-    return render(request, 'movie/home.html', context)
+    # obtener el término de búsqueda desde ?searchMovie=...
+    searchTerm = request.GET.get('searchMovie')
+
+    if searchTerm:
+        movies = Movie.objects.filter(title__icontains=searchTerm)
+    else:
+        movies = Movie.objects.all()
+
+    return render(request, 'movie/home.html', {
+        'searchTerm': searchTerm,
+        'movies': movies
+    })
 
 def about(request):
+    # usar plantilla about.html
     return render(request, 'movie/about.html')
-
-
-# Create your views here.
