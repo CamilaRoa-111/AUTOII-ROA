@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 def home(request):
     # Diccionario con datos que queremos pasar a la plantilla
-    context = {'name': 'Greg Lim'}
+    context = {'name': 'Camila Roa'}
     return render(request, 'movie/home.html', context)
 
 def about(request):
