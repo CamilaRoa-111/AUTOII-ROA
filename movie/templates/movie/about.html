@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>About Page</title>
-</head>
-<body>
-    <h1>Welcome to About Page</h1>
-    <p>Esta es la página About de la app.</p>
-</body>
-</html>
+{% extends 'movie/base.html' %}
+
+{% block title %}Acerca de - Movie Reviews{% endblock %}
+
+{% block content %}
+    <div class="text-center mt-5">
+        <h1 class="text-primary">🎬 Acerca de Movie Reviews</h1>
+        <p class="mt-4">
+            Este sitio web fue creado como parte del Taller de Laboratorio II en Django.
+            Su objetivo es mostrar un ejemplo funcional de un portal de películas con una
+            sección de noticias, utilizando plantillas, vistas y modelos.
+        </p>
+        <p class="fw-bold mt-3">Desarrollado por: <span class="text-success">Camila Roa</span></p>
+        <a href="/" class="btn btn-secondary mt-3">Volver al inicio</a>
+    </div>
+{% endblock %}
+

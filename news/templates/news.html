@@ -1,0 +1,27 @@
+{% extends 'movie/base.html' %}
+
+{% block title %}Noticias - Movie Reviews{% endblock %}
+
+{% block content %}
+    <h1 class="text-primary mb-4 text-center">🗞️ News Page</h1>
+
+    <div class="row justify-content-center">
+        {% for n in news_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">{{ n.headline }}</h5>
+                        <p class="card-text">{{ n.body }}</p>
+                        <!-- Botón Ver más -->
+                        <a href="/news/{{ n.id }}/" class="btn btn-primary mt-2">Ver más</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Fecha: {{ n.date }}
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center text-muted">No hay noticias aún.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
